@@ -6,13 +6,18 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - "mc:/data"
+      - "data:/data"
     environment:
       EULA: "TRUE"
+      MAX_MEMORY: 12G
+      MAX_PLAYERS: 500
+      VIEW_DISTANCE: 15
       CONSOLE: "false"
       ENABLE_RCON: "true"
       RCON_PASSWORD: "testing"
       RCON_PORT: 28016
+      TYPE: FORGE
+      FORGEVERSION: xxxxxx
     restart: always
   rcon:
     image: itzg/rcon
@@ -23,5 +28,5 @@ services:
       - "rcon:/opt/rcon-web-admin/db"
 
 volumes:
-  mc:
+  data:
   rcon:
